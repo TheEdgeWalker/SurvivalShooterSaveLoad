@@ -15,7 +15,13 @@ public class SaveManager : MonoBehaviour
 
 		string json = JsonUtility.ToJson(data);
 
-		StreamWriter writer = new StreamWriter("Assets/SaveData/save.json", false);
+		string path = Path.Combine(Application.dataPath, "SaveData");
+		if (!Directory.Exists(path))
+		{
+			Directory.CreateDirectory(path);
+		}
+
+		StreamWriter writer = new StreamWriter(path + "/save.json", false);
 		writer.Write(json);
 		writer.Close();
 
