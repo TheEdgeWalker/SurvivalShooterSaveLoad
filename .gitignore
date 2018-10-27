@@ -35,3 +35,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assets/SaveData/save.json
+Assets/SaveData/save.json.meta
