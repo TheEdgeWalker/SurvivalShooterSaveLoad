@@ -4,22 +4,17 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-	public SerializableGameObject player;
-	public SerializableGameObject[] monsters;
+	public SerializablePlayer player;
+	public SerializableMonster[] monsters;
 
 	public GameData(GameObject player, GameObject[] monsters)
 	{
-		this.player = ConvertToSerializableGameObject(player);
+		this.player = new SerializablePlayer(player);
 
-		this.monsters = new SerializableGameObject[monsters.Length];
+		this.monsters = new SerializableMonster[monsters.Length];
 		for (int i = 0; i < monsters.Length; ++i)
 		{
-			this.monsters[i] = ConvertToSerializableGameObject(monsters[i]);
+			this.monsters[i] = new SerializableMonster(monsters[i]);
 		}
-	}
-
-	private SerializableGameObject ConvertToSerializableGameObject(GameObject gameObject)
-	{
-		return new SerializableGameObject(gameObject);
 	}
 }

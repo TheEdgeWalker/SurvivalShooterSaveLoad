@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-	private void Start()
-	{
-
-	}
-
 	public void Save()
 	{
 		Debug.Log("Start Save");
@@ -20,7 +15,7 @@ public class SaveManager : MonoBehaviour
 
 		string json = JsonUtility.ToJson(data);
 
-		StreamWriter writer = new StreamWriter("Assets/SaveData/save.json", true);
+		StreamWriter writer = new StreamWriter("Assets/SaveData/save.json", false);
 		writer.Write(json);
 		writer.Close();
 
