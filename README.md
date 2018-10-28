@@ -1,6 +1,7 @@
 # SurvivalShooterSaveLoad
 This is a challenge project where I had to add a Save/Load feature to the Unity's Survival Shooter Tutorial.
 Please refer to the following link to download the Survival Shooter Tutorial asset:
+
 https://assetstore.unity.com/packages/essentials/tutorial-projects/survival-shooter-tutorial-40756
 
 When you start the game, you will be given an option to Start or Load the game. If there is no file to load, the Load button is disabled.
@@ -8,6 +9,7 @@ The Save button is in the options menu (press ESC).
 
 The save file is located at "Application.dataPath + SaveData/save.json". The actual directory may differ depending on the platform the game is played on.
 Please refer to the following document to find the exact save file path for each platform:
+
 https://docs.unity3d.com/ScriptReference/Application-dataPath.html
 
 I chose JSON as the save method for the following reasons:
