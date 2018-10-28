@@ -15,4 +15,10 @@ public class SerializablePlayer : SerializableGameObject
 			health = new SerializablePlayerHealth(playerHealth);
 		}
 	}
+
+	public override void Deserialize(GameObject gameObject)
+	{
+		base.Deserialize(gameObject);
+		health.Deserialize(gameObject.GetComponent<PlayerHealth>());
+	}
 }

@@ -2,16 +2,12 @@
 using System;
 
 [Serializable]
-public class SerializablePlayerHealth : SerializableComponent<PlayerHealth>
+public class SerializablePlayerHealth : SerializableObject<PlayerHealth>
 {
 	public int startingHealth;
 	public int currentHealth;
 
-	public SerializablePlayerHealth(PlayerHealth playerHealth) : base(playerHealth)
-	{
-	}
-
-	protected override void Serialize(PlayerHealth playerHealth)
+	public SerializablePlayerHealth(PlayerHealth playerHealth)
 	{
 		startingHealth = playerHealth.startingHealth;
 		currentHealth = playerHealth.currentHealth;

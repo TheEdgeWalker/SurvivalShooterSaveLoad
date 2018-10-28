@@ -2,16 +2,12 @@
 using UnityEngine;
 
 [Serializable]
-public class SerializableTransform : SerializableComponent<Transform>
+public class SerializableTransform : SerializableObject<Transform>
 {
 	public float[] position;
 	public float[] rotation;
 
-	public SerializableTransform(Transform transform) : base(transform)
-	{
-	}
-
-	protected override void Serialize(Transform transform)
+	public SerializableTransform(Transform transform)
 	{
 		position = Vector3ToArray(transform.position);
 		rotation = QuaternionToArray(transform.rotation);
