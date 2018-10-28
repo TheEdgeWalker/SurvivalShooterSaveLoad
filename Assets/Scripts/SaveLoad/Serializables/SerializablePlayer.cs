@@ -6,19 +6,19 @@ using UnityEngine;
 public class SerializablePlayer : SerializableGameObject
 {
 	public SerializablePlayerHealth health;
+	public SerializablePlayerShooting shooting;
 
 	public SerializablePlayer(GameObject player) : base(player)
 	{
-		PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-		if (playerHealth)
-		{
-			health = new SerializablePlayerHealth(playerHealth);
-		}
+		health = SerializeComponent<SerializablePlayerHealth, PlayerHealth>(player);
+		shooting = SerializeComponent<SerializablePlayerShooting, PlayerShooting>(player);
 	}
 
-	public override void Deserialize(GameObject gameObject)
+	public override void Deserialize(GameObject player)
 	{
-		base.Deserialize(gameObject);
-		health.Deserialize(gameObject.GetComponent<PlayerHealth>());
+		base.Deserialize(player);
+
+		DeserializeComponent(player, health);
+		DeserializeComponent(player, shooting);
 	}
 }

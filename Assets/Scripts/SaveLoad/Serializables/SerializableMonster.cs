@@ -13,16 +13,14 @@ public class SerializableMonster : SerializableGameObject
 	{
 		name = monster.name;
 
-		EnemyHealth enemyHealth = monster.GetComponent<EnemyHealth>();
-		if (enemyHealth)
-		{
-			health = new SerializableEnemyHealth(enemyHealth);
-		}
+		health = SerializeComponent<SerializableEnemyHealth, EnemyHealth>(monster);
 	}
 
-	public override void Deserialize(GameObject gameObject)
+	public override void Deserialize(GameObject monster)
 	{
-		base.Deserialize(gameObject);
-		health.Deserialize(gameObject.GetComponent<EnemyHealth>());
+		base.Deserialize(monster);
+
+		DeserializeComponent(monster, health);
+		health.Deserialize(monster.GetComponent<EnemyHealth>());
 	}
 }
