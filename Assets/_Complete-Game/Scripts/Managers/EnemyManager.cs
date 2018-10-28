@@ -10,10 +10,28 @@ namespace CompleteProject
 		public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
 
-		void Start()
+		public float time
 		{
-			// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-			InvokeRepeating("Spawn", spawnTime, spawnTime);
+			get;
+			private set;
+		}
+
+
+		private void Update()
+		{
+			if (time >= spawnTime)
+			{
+				Spawn();
+				time -= spawnTime;
+			}
+
+			time += Time.deltaTime;
+		}
+
+
+		public void AdvanceTime(float time)
+		{
+			this.time += time;
 		}
 
 
