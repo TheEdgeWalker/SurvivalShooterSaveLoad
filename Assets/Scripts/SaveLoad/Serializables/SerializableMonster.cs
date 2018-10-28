@@ -20,7 +20,7 @@ public class SerializableMonster : SerializableGameObject
 	{
 		base.Deserialize(monster);
 
+		monster.name = name;
 		DeserializeComponent(monster, health);
-		health.Deserialize(monster.GetComponent<EnemyHealth>());
 	}
 }
