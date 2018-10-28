@@ -10,8 +10,10 @@ public class GameData
 	public SerializableMonster[] monsters;
 	public SerializableEnemyManager[] enemyManagers;
 
-	public GameData(GameObject player, GameObject[] monsters, EnemyManager[] enemyManagers)
+	public GameData(int score, GameObject player, GameObject[] monsters, EnemyManager[] enemyManagers)
 	{
+		this.score = score;
+
 		this.player = new SerializablePlayer(player);
 
 		this.monsters = new SerializableMonster[monsters.Length];

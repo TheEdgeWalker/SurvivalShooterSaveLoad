@@ -42,6 +42,7 @@ public class StartLoadManager : MonoBehaviour
 
 	private void ApplyGameData(GameData data)
 	{
+		ScoreManager.score = data.score;
 		ApplyPlayer(data);
 		ApplyMonsters(data);
 		ApplyEnemyManagers(data);
