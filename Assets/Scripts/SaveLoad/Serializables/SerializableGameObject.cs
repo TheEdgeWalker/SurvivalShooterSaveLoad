@@ -18,21 +18,26 @@ public class SerializableGameObject : SerializableObject<GameObject>
 
 	protected Serializable SerializeComponent<Serializable, Component>(GameObject gameObject)
 	{
-		Component component = gameObject.GetComponent<Component>();
+		Component component = gameObject.GetComponentInChildren<Component>();
 		if (component != null)
 		{
 			return (Serializable)Activator.CreateInstance(typeof(Serializable), component);
 		}
 
+		Debug.LogError("SerializeComponent failed: " + typeof(Component));
 		return default(Serializable);
 	}
 
 	protected void DeserializeComponent<Component>(GameObject gameObject, SerializableObject<Component> serializableObject)
 	{
-		Component component = gameObject.GetComponent<Component>();
+		Component component = gameObject.GetComponentInChildren<Component>();
 		if (component != null)
 		{
 			serializableObject.Deserialize(component);
+		}
+		else
+		{
+			Debug.LogError("DeserializeComponent failed: " + typeof(Component));
 		}
 	}
 }
