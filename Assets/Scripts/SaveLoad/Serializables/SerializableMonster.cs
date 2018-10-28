@@ -19,4 +19,10 @@ public class SerializableMonster : SerializableGameObject
 			health = new SerializableEnemyHealth(enemyHealth);
 		}
 	}
+
+	public override void Deserialize(GameObject gameObject)
+	{
+		base.Deserialize(gameObject);
+		health.Deserialize(gameObject.GetComponent<EnemyHealth>());
+	}
 }

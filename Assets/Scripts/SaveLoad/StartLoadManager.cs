@@ -1,4 +1,5 @@
 ﻿using CompleteProject;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,5 +44,26 @@ public class StartLoadManager : MonoBehaviour
 	{
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		data.player.Deserialize(player);
+
+		GameObject[] monsterPrefabs = Resources.LoadAll<GameObject>("Monsters");
+		Dictionary<string, GameObject> monsterPrefabDictionary = new Dictionary<string, GameObject>(monsterPrefabs.Length);
+		foreach (GameObject monsterPrefab in monsterPrefabs)
+		{
+			monsterPrefabDictionary.Add(monsterPrefab.name, monsterPrefab);
+		}
+
+		foreach (SerializableMonster monster in data.monsters)
+		{
+			GameObject monsterPrefab;
+			if (monsterPrefabDictionary.TryGetValue(monster.name, out monsterPrefab))
+			{
+				GameObject newMonster = Instantiate(monsterPrefab);
+				monster.Deserialize(newMonster);
+			}
+			else
+			{
+				Debug.LogError("Failed to Instantiate monster: " + monster.name);
+			}
+		}
 	}
 }
