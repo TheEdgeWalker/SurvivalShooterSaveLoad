@@ -44,6 +44,9 @@ On load, the deserialized Score/Player/EnemyManagers data are applied to the Gam
 
 # Conclusion
 I have successfully implemented a functional save/load system for Survival Shooter Tutorial.
+
 If there are changes to the game, and the scope of the save file needs to be expanded, I feel that the code is moderately scalable by implementing more children classes of SerializableObject.
+
 However, I feel that I could have vastly increased scalability by implementing a proper Unity GameObject serializer by using reflection. Of course, this will surely have negative performance impacts, and also I felt that this endevour is not for a single weekend, so I decided to approach things the more "manual" way.
+
 The completed Survival Shooter Tutorial does not include a object pool, so the monsters were basically being Instantiated and Destroyed constantly. I was very tempted to fix this and implement a proper object pool, but if I started editing the code for the base project, I was afraid that I might never finish this challenge.
