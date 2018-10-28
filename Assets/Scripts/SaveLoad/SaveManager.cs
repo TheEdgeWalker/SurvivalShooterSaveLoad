@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using CompleteProject;
 using System.IO;
 using UnityEngine;
 
@@ -7,11 +6,11 @@ public class SaveManager : MonoBehaviour
 {
 	public void Save()
 	{
-		Debug.Log("Start Save");
-
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
-		GameData data = new GameData(player, monsters);
+		EnemyManager[] enemyManagers = GameObject.Find("EnemyManager").GetComponents<EnemyManager>();
+
+		GameData data = new GameData(player, monsters, enemyManagers);
 
 		string json = JsonUtility.ToJson(data);
 
@@ -24,7 +23,5 @@ public class SaveManager : MonoBehaviour
 		StreamWriter writer = new StreamWriter(path + "/save.json", false);
 		writer.Write(json);
 		writer.Close();
-
-		Debug.Log("End Save");
 	}
 }
