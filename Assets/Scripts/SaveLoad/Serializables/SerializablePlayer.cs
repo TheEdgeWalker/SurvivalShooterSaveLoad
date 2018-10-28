@@ -5,14 +5,14 @@ using UnityEngine;
 [Serializable]
 public class SerializablePlayer : SerializableGameObject
 {
-	public int health;
+	public SerializablePlayerHealth health;
 
 	public SerializablePlayer(GameObject player) : base(player)
 	{
 		PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
 		if (playerHealth)
 		{
-			health = playerHealth.currentHealth;
+			health = new SerializablePlayerHealth(playerHealth);
 		}
 	}
 }

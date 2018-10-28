@@ -7,7 +7,7 @@ using UnityEngine;
 public class SerializableMonster : SerializableGameObject
 {
 	public string name;
-	public int health;
+	public SerializableEnemyHealth health;
 
 	public SerializableMonster(GameObject monster) : base(monster)
 	{
@@ -16,7 +16,7 @@ public class SerializableMonster : SerializableGameObject
 		EnemyHealth enemyHealth = monster.GetComponent<EnemyHealth>();
 		if (enemyHealth)
 		{
-			health = enemyHealth.currentHealth;
+			health = new SerializableEnemyHealth(enemyHealth);
 		}
 	}
 }

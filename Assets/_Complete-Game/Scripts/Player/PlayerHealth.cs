@@ -80,11 +80,12 @@ namespace CompleteProject
 		}
 
 
-		public void SetHealth(int health)
+		public void SetHealth(int startingHealth, int currentHealth)
 		{
-			healthSlider.value = currentHealth = health;
+			healthSlider.maxValue = this.startingHealth = startingHealth;
+			healthSlider.value = this.currentHealth = currentHealth;
 
-			if (currentHealth <= 0 && !isDead)
+			if (this.currentHealth <= 0 && !isDead)
 			{
 				Death();
 			}

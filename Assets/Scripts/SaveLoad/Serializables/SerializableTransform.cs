@@ -7,7 +7,7 @@ public class SerializableTransform : SerializableComponent<Transform>
 	public float[] position;
 	public float[] rotation;
 
-	public SerializableTransform(Transform component) : base(component)
+	public SerializableTransform(Transform transform) : base(transform)
 	{
 	}
 
