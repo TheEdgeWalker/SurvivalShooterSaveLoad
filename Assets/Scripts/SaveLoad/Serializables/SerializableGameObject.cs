@@ -11,6 +11,10 @@ public class SerializableGameObject : SerializableObject<GameObject>
 		transform = new SerializableTransform(gameObject.transform);
 	}
 
+	public SerializableGameObject()
+	{
+	}
+
 	public override void Deserialize(GameObject gameObject)
 	{
 		transform.Deserialize(gameObject.transform);
