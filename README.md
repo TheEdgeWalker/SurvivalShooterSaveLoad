@@ -45,7 +45,18 @@ On save, all the above GameObjects are searched by tag or by name, and serialize
 On load, the deserialized Score/Player/EnemyManagers data are applied to the GameObjects on the scene, but for Monsters, they are Instantiated first, and then the deserialized data is applied.
 
 # Third attempt: Attach a Serializable component to relevant GameObjects
-(TBD)
+Although my second attempt works, I have realized that it is not very scalable. If the GameObject names or tags are changed, it will not work. If a designer adds new types of GameObjects that also need to be saved, I have to change the code to accomodate that.
+
+I was thinking about how I should deal with this, and I had a shower thought. What if I decided to attach a 'Serializable' component to the GameObject that will automatically serialize and deserialize for me?
+But, if I wanted to do that, I will need to implement a system that can identify which serialized data goes to which GameObject.
+
+Then I found this article on Gamasutra:
+
+https://www.gamasutra.com/blogs/SamanthaStahlke/20170621/300187/Building_a_Simple_System_for_Persistence_with_Unity.php
+
+TODO:
+- Implement a GUID system
+- Implement a proper GameObject serializer/deserializer that can work on designated Components
 
 # Conclusion
 I have successfully implemented a functional save/load system for Survival Shooter Tutorial.
