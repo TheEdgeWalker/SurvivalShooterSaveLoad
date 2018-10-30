@@ -1,11 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
+[Serializable, ExecuteInEditMode]
 public class GameObjectSerializer : MonoBehaviour
 {
+	[HideInInspector]
+	public string id;
+
 	public bool shouldInstantiate = false;
 	public string[] components;
+
+	private void Awake()
+	{
+		if (string.IsNullOrEmpty(id))
+		{
+			id = Guid.NewGuid().ToString();
+		}
+	}
 
 	public SerializableGameObject Serialize()
 	{
