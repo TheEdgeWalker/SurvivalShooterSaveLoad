@@ -9,6 +9,11 @@ public class SerializableEnemyManager : SerializableObject<EnemyManager>
 	
 	public SerializableEnemyManager(EnemyManager enemyManager)
 	{
+		Serialize(enemyManager);
+	}
+
+	public override void Serialize(EnemyManager enemyManager)
+	{
 		enemy = enemyManager.enemy.name;
 		time = enemyManager.time;
 	}

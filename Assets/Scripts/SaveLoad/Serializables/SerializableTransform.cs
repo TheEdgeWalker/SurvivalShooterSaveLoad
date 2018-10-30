@@ -9,6 +9,11 @@ public class SerializableTransform : SerializableObject<Transform>
 
 	public SerializableTransform(Transform transform)
 	{
+		Serialize(transform);
+	}
+
+	public override void Serialize(Transform transform)
+	{
 		position = Vector3ToArray(transform.position);
 		rotation = QuaternionToArray(transform.rotation);
 	}

@@ -9,6 +9,11 @@ public class SerializableEnemyHealth : SerializableObject<EnemyHealth>
 
 	public SerializableEnemyHealth(EnemyHealth enemyHealth)
 	{
+		Serialize(enemyHealth);
+	}
+
+	public override void Serialize(EnemyHealth enemyHealth)
+	{
 		startingHealth = enemyHealth.startingHealth;
 		currentHealth = enemyHealth.currentHealth;
 	}

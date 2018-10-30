@@ -9,12 +9,11 @@ public class GameObjectSerializer : MonoBehaviour
 
 	public SerializableGameObject Serialize()
 	{
-		SerializableGameObject serializable = new SerializableGameObject();
-		return serializable;
+		return new SerializableGameObject(gameObject, components);
 	}
 
 	public void Deserialize(SerializableGameObject serializable)
 	{
-
+		serializable.Deserialize(gameObject);
 	}
 }

@@ -11,13 +11,16 @@ public class SerializableGameObject : SerializableObject<GameObject>
 		transform = new SerializableTransform(gameObject.transform);
 	}
 
-	public SerializableGameObject()
+	public SerializableGameObject(GameObject gameObject, string[] components)
+	{
+	}
+
+	public override void Serialize(GameObject gameObject)
 	{
 	}
 
 	public override void Deserialize(GameObject gameObject)
 	{
-		transform.Deserialize(gameObject.transform);
 	}
 
 	protected Serializable SerializeComponent<Serializable, Component>(GameObject gameObject)

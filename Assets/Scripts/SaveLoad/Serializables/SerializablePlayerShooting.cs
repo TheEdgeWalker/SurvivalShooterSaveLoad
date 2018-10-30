@@ -9,6 +9,11 @@ public class SerializablePlayerShooting : SerializableObject<PlayerShooting>
 
 	public SerializablePlayerShooting(PlayerShooting playerShooting)
 	{
+		Serialize(playerShooting);
+	}
+
+	public override void Serialize(PlayerShooting playerShooting)
+	{
 		areEffectsEnabled = playerShooting.AreEffectsEnabled();
 		time = playerShooting.time;
 	}
