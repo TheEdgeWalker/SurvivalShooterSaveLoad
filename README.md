@@ -45,7 +45,7 @@ On save, all the above GameObjects are searched by tag or by name, and serialize
 On load, the deserialized Score/Player/EnemyManagers data are applied to the GameObjects on the scene, but for Monsters, they are Instantiated first, and then the deserialized data is applied.
 
 # Third attempt: Attach a Serializable component to relevant GameObjects
-(TBD)
+(Refer to SerializableComponent branch)
 
 # Conclusion
 I have successfully implemented a functional save/load system for Survival Shooter Tutorial.
