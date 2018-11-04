@@ -4,18 +4,19 @@ using UnityEngine;
 [Serializable, ExecuteInEditMode]
 public class GameObjectSerializer : MonoBehaviour
 {
-	[HideInInspector]
-	public string id;
+	public string guid;
 
 	public bool shouldInstantiate = false;
 	public string[] components;
 
 	private void Awake()
 	{
-		if (string.IsNullOrEmpty(id))
+		if (string.IsNullOrEmpty(guid))
 		{
-			id = Guid.NewGuid().ToString();
+			guid = Guid.NewGuid().ToString();
 		}
+
+		SerializeManager.Instance.Add(guid, gameObject);
 	}
 
 	public SerializableGameObject Serialize()
@@ -26,5 +27,16 @@ public class GameObjectSerializer : MonoBehaviour
 	public void Deserialize(SerializableGameObject serializable)
 	{
 		serializable.Deserialize(gameObject);
+	}
+
+	private void OnDestroy()
+	{
+		if (string.IsNullOrEmpty(guid))
+		{
+			Debug.LogError("GUID cannot be null or empty: " + name);
+			return;
+		}
+
+		SerializeManager.Instance.Remove(guid);
 	}
 }
