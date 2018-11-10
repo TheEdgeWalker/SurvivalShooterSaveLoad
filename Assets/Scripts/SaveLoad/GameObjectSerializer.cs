@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable, ExecuteInEditMode]
 public class GameObjectSerializer : MonoBehaviour
 {
+	[ShowOnly]
 	public string guid;
 
 	public bool shouldInstantiate = false;
