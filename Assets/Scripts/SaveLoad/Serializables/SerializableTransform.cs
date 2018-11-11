@@ -7,6 +7,10 @@ public class SerializableTransform : SerializableObject<Transform>
 	public float[] position;
 	public float[] rotation;
 
+	public SerializableTransform()
+	{
+	}
+
 	public SerializableTransform(Transform transform)
 	{
 		Serialize(transform);

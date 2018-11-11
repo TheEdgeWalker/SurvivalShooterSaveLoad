@@ -7,6 +7,10 @@ public class SerializableEnemyHealth : SerializableObject<EnemyHealth>
 	public int startingHealth;
 	public int currentHealth;
 
+	public SerializableEnemyHealth()
+	{
+	}
+
 	public SerializableEnemyHealth(EnemyHealth enemyHealth)
 	{
 		Serialize(enemyHealth);

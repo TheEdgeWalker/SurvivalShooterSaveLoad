@@ -3317,6 +3317,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1365595559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 4e5a0d387dc27394b81600988ad0216f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1641232233}
+--- !u!114 &1365595560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365595559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6642c11bb21ba4913b82c6979b3890ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8b057548-232e-4645-8ecd-c8e8c39aafcd
 --- !u!1 &1394906872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,6 +3767,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114074262487096128, guid: 4e5a0d387dc27394b81600988ad0216f,
+        type: 2}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 4e5a0d387dc27394b81600988ad0216f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3800,7 +3822,18 @@ Prefab:
       propertyPath: shouldInstantiate
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114074262487096128, guid: 4e5a0d387dc27394b81600988ad0216f,
+        type: 2}
+      propertyPath: components.Array.data[1]
+      value: PlayerHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074262487096128, guid: 4e5a0d387dc27394b81600988ad0216f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114074262487096128, guid: 4e5a0d387dc27394b81600988ad0216f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 4e5a0d387dc27394b81600988ad0216f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1695883712

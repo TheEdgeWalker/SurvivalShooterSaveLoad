@@ -7,6 +7,10 @@ public class SerializablePlayerShooting : SerializableObject<PlayerShooting>
 	public bool areEffectsEnabled = false;
 	public float time;
 
+	public SerializablePlayerShooting()
+	{
+	}
+
 	public SerializablePlayerShooting(PlayerShooting playerShooting)
 	{
 		Serialize(playerShooting);

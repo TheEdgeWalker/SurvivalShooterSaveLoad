@@ -24,10 +24,10 @@ public class SerializeManager
 	{
 	}
 
-	public void Add(string guid, GameObject gameObject)
+	public void Add(PersistentID persistentID)
 	{
-		Debug.LogFormat("SerializeManager.Add: {0}, {1}", guid, gameObject.name);
-		gameObjects[guid] = gameObject;
+		Debug.LogFormat("SerializeManager.Add: {0}, {1}", persistentID.guid, persistentID.name);
+		gameObjects[persistentID.guid] = persistentID.gameObject;
 	}
 
 	public void Remove(string guid)
@@ -38,8 +38,19 @@ public class SerializeManager
 
 	public GameObject GetGameObject(string guid)
 	{
-		GameObject ret;
-		gameObjects.TryGetValue(guid, out ret);
-		return ret;
+		GameObject gameObject;
+		gameObjects.TryGetValue(guid, out gameObject);
+		return gameObject;
+	}
+
+	public SerializableGameObject[] GetSerializableGameObjects()
+	{
+		SerializableGameObject[] serialized = new SerializableGameObject[gameObjects.Count];
+		int i = 0;
+		foreach (KeyValuePair<string, GameObject> entry in gameObjects)
+		{
+			serialized[i] = new SerializableGameObject(entry.Value);
+		}
+		return serialized;
 	}
 }

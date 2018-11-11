@@ -6,12 +6,7 @@ public class SaveManager : MonoBehaviour
 {
 	public void Save()
 	{
-		int score = ScoreManager.score;
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
-		EnemyManager[] enemyManagers = GameObject.Find("EnemyManager").GetComponents<EnemyManager>();
-
-		GameData data = new GameData(score, player, monsters, enemyManagers);
+		GameData data = new GameData();
 
 		string json = JsonUtility.ToJson(data);
 

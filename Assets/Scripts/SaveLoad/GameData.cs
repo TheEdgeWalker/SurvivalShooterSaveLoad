@@ -5,27 +5,10 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-	public int score;
-	public SerializablePlayer player;
-	public SerializableMonster[] monsters;
-	public SerializableEnemyManager[] enemyManagers;
+	public SerializableGameObject[] gameObjects;
 
-	public GameData(int score, GameObject player, GameObject[] monsters, EnemyManager[] enemyManagers)
+	public GameData()
 	{
-		this.score = score;
-
-		this.player = new SerializablePlayer(player);
-
-		this.monsters = new SerializableMonster[monsters.Length];
-		for (int i = 0; i < monsters.Length; ++i)
-		{
-			this.monsters[i] = new SerializableMonster(monsters[i]);
-		}
-
-		this.enemyManagers = new SerializableEnemyManager[enemyManagers.Length];
-		for (int i = 0; i < enemyManagers.Length; ++i)
-		{
-			this.enemyManagers[i] = new SerializableEnemyManager(enemyManagers[i]);
-		}
+		gameObjects = SerializeManager.Instance.GetSerializableGameObjects();
 	}
 }
